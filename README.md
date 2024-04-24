@@ -36,11 +36,13 @@ extract_items(data): Extracts items from relevant fields in the JSON data.
 generate_candidates(freq_itemsets, k): Generates candidate itemsets for the Apriori algorithm.
 count_support(transactions, candidates): Counts the support for candidate itemsets.
 apriori(transactions, min_support): Performs the Apriori algorithm on received transactions.
+
 **Consumer 2**
 extract_items(data): Extracts items from the JSON data.
 count_item_pairs(transactions, hash_buckets, bucket_count): Counts item pairs and filters frequent pairs using the PCY algorithm.
 filter_candidates(candidate_counts, support_threshold): Filters candidate item pairs based on support threshold.
 pcy(transactions, support_threshold, hash_bucket_size): Performs the PCY algorithm on received transactions.
+
 **Consumer 3**
 IncrementalApriori: Class for performing incremental Apriori algorithm.
 init(min_support): Initializes the minimum support threshold and itemsets dictionary.
@@ -52,6 +54,7 @@ main: Entry point for the consumer.
 Connects to Kafka and MongoDB.
 Processes messages from Kafka, performs incremental Apriori, and inserts results into MongoDB.
 Closes MongoDB connection.
+
 **Producer**
 IncrementalApriori: Similar to the consumer's IncrementalApriori class.
 main: Entry point for the producer.
